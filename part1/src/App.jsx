@@ -8,9 +8,9 @@ of exercises.*/
 //TODO - first make the syntax for the three components 
 
 
-const Header = () => {
+const Header = (props) => {    // BUG - what is the problem here ???? why the error message.....
   return (
-    <h1>Half Stack application development</h1>
+    <h1>{props}</h1>
   )
 }
 
@@ -27,8 +27,8 @@ const App = () => {
 
   return (
     <div>
-      <Header />
-      
+      <Header {course}/>        //FIXME - trying to pass the text hrough the props - the wqhole text why isnt it working......????? 
+                                //TODO - learning how a component works and then i will underastand what is going on and what should i do..
       <p>
         {part1} { exercise1}
       </p>
