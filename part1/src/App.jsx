@@ -14,6 +14,13 @@ const Header = ({props}) => {
   )
 }
 
+//TODO - create the Content component
+
+const Content = ({part,exercise}) => {
+  return(
+    <p>{part} - Exercise {exercise}</p>
+  )
+}
 
 
 const App = () => {
@@ -27,16 +34,10 @@ const App = () => {
 
   return (
     <div>
-      <Header props={course}/>        
-      <p>
-        {part1} { exercise1}
-      </p>
-      <p>
-        {part2} {exercise2}
-      </p>
-      <p>
-        {part3} {exercise3}
-      </p>
+      <Header props={course}/>  
+      <Content part={part1} exercise ={exercise1} />
+      <Content part={part2} exercise ={exercise2} />
+      <Content part={part3} exercise ={exercise3} />
       <p>Number of exercises {exercise1+exercise2+exercise3}</p>
     </div>
   )
