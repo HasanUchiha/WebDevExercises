@@ -22,6 +22,16 @@ const Content = ({part,exercise}) => {
   )
 }
 
+//TODO - make the TOtal component
+
+const Total = ({num1,num2,num3}) => {
+  const total = num1+num2+num3
+  return(
+  <p>Number of exercises- {total}</p>
+  )
+}
+
+
 
 const App = () => {
   const course = 'Half Stack application development'
@@ -38,7 +48,7 @@ const App = () => {
       <Content part={part1} exercise ={exercise1} />
       <Content part={part2} exercise ={exercise2} />
       <Content part={part3} exercise ={exercise3} />
-      <p>Number of exercises {exercise1+exercise2+exercise3}</p>
+      <Total num1={exercise1} num2={exercise2} num3={exercise3} />
     </div>
   )
 }
