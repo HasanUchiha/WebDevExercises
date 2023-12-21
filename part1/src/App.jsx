@@ -1,29 +1,19 @@
-/*Refactor the code so that it consists of three new components: Header, Content, and Total. 
-All data still resides in the App component,
-which passes the necessary data to each component using props.
-Header takes care of rendering the name of the course, 
-Content renders the parts and their number of exercises and Total renders the total number 
-of exercises.*/
 
-//TODO - first make the syntax for the three components 
-
-
+//header component for outputting the h1 text
 const Header = ({props}) => {   
   return (
     <h1>{props}</h1>
   )
 }
 
-//TODO - create the Content component
-
+//content is for displaying the options of different exercises and their numbers
 const Content = ({part,exercise}) => {
   return(
     <p>{part} - Exercise {exercise}</p>
   )
 }
 
-//TODO - make the TOtal component
-
+//total is for adding up all the numbers and showing the total of it 
 const Total = ({num1,num2,num3}) => {
   const total = num1+num2+num3
   return(
@@ -31,8 +21,7 @@ const Total = ({num1,num2,num3}) => {
   )
 }
 
-
-
+//finally here is all the props are being passed and the components are doing their work to output the desired line that we expect
 const App = () => {
   const course = 'Half Stack application development'
   const part1 = 'Fundamentals of React'
