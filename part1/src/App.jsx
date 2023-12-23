@@ -6,10 +6,28 @@ const Header = ({props}) => {
   )
 }
 
+/*Refactor the Content component so that it does not render any names of parts or their number of exercises by itself. 
+Instead, it only renders three Part components of which each renders the name and number of exercises of one part*/
+
+
+//creating Part component 
+
+const Part = ({part, exercise}) => {
+  return (
+     <p>{part} - Exercise {exercise}</p>
+  )
+}
+
+
+
 //content is for displaying the options of different exercises and their numbers
-const Content = ({part,exercise}) => {
+const Content = ({ parts }) => {
   return(
-    <p>{part} - Exercise {exercise}</p>
+    <div>
+       {parts.map((part, index) => (
+        <Part key={index} part={part.name} exercise={part.exercise} />
+      ))}
+    </div>
   )
 }
 
@@ -21,23 +39,22 @@ const Total = ({num1,num2,num3}) => {
   )
 }
 
+
 //finally here is all the props are being passed and the components are doing their work to output the desired line that we expect
+
 const App = () => {
   const course = 'Half Stack application development'
-  const part1 = 'Fundamentals of React'
-  const exercise1= 10
-  const part2 = 'Using props to pass data'
-  const exercise2 = 7
-  const part3 = 'State of a component'
-  const exercise3 = 14
+  const parts = [
+    { name: 'Fundamentals of React', exercise: 10 },
+    { name: 'Using props to pass data', exercise: 7 },
+    { name: 'State of a component', exercise: 14 }
+  ]
 
   return (
     <div>
-      <Header props={course}/>  
-      <Content part={part1} exercise ={exercise1} />
-      <Content part={part2} exercise ={exercise2} />
-      <Content part={part3} exercise ={exercise3} />
-      <Total num1={exercise1} num2={exercise2} num3={exercise3} />
+      <Header props={course} />
+      <Content parts={parts} />
+      <Total num1={parts[0].exercise} num2={parts[1].exercise} num3={parts[2].exercise} />
     </div>
   )
 }
